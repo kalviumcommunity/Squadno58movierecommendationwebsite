@@ -1,0 +1,11 @@
+{
+  "name": "squadno58movierecommendationwebsite",
+  "version": "1.0.0",
+  "description": "Welcome to the Movie Recommendation App! This app helps users discover new movies based on their preferences and viewing history.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
