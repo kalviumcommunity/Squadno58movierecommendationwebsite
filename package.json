@@ -4,12 +4,15 @@
   "description": "Welcome to the Movie Recommendation App! This app helps users discover new movies based on their preferences and viewing history.",
   "main": "index.js",
   "repository": {
-    "type":"git",
-     "url":"https://github.com/kalviumcommunity/Squadno58movierecommendationwebsite"
+    "type": "git",
+    "url": "https://github.com/kalviumcommunity/Squadno58movierecommendationwebsite"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.3"
+  }
 }
