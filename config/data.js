@@ -100,4 +100,4 @@ let data=[
 
 ];
 
-module.exports = moviesData;
+module.exports = data;
