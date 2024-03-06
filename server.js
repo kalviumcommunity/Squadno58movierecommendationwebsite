@@ -7,8 +7,10 @@ const {connection,isConnected}=require('./config/db')
 const moviesData = require('./config/data');
 const { moviesModel } = require('./model/movies');
 const CRUD_routes = require('./routes/routes');
+const cors=require('cors')
 
 app.use(express.json())
+app.use(cors())
 
 app.get('/ping', (req, res) => {
   res.json({ message: 'pong' });
