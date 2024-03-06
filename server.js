@@ -4,9 +4,11 @@ const dotenv=require('dotenv');
 dotenv.config()
 const port = process.env.PUBLIC_PORT || 3000;
 const {connection,isConnected}=require('./config/db')
-const data = require('./config/data');
+const moviesData = require('./config/data');
 const { moviesModel } = require('./model/movies');
+const CRUD_routes = require('./routes/routes');
 
+app.use(express.json())
 
 app.get('/ping', (req, res) => {
   res.json({ message: 'pong' });
@@ -33,6 +35,8 @@ app.post('/postdata',(req,res)=>{
   });
 })
 
+app.use("/routes",CRUD_routes)
+
 
 const server=app.listen(port,async () => { 
   try {
@@ -45,5 +49,7 @@ const server=app.listen(port,async () => {
   }
 
   console.log(`Server is listening on port ${port}`);
+
+  
 
 });
