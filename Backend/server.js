@@ -5,7 +5,7 @@ dotenv.config()
 const port = process.env.PUBLIC_PORT || 3000;
 const {connection,isConnected}=require('./config/db')
 const moviesData = require('./config/data');
-const { moviesModel } = require('./model/movies');
+const { moviesModel, moviesSchema } = require('./model/movies');
 const CRUD_routes = require('./routes/routes');
 const cors=require('cors')
 
@@ -19,23 +19,29 @@ app.get('/ping', (req, res) => {
 app.get("/", async (req, res) => {
 
   if(isConnected()){
-    res.status(200).send(`<h1>Database Connected Successfully</h1><p>Status Code: 200</p>`);
+    res.status(200).send(`<h1>Database Connected Successfully</h1><p>Status Code: 200</p>`);
   }else{
-    res.status(400).send(`<h1>Database is not Connected Successfully</h1><p>Status Code: 400</p>`);
+    res.status(400).send(`<h1>Database is not Connected Successfully</h1><p>Status Code: 400</p>`);
   }
   
-  // res.status(200).send(`<h1>Database Connected Successfully</h1><p>Status Code: 200</p>`);
+  // res.status(200).send(<h1>Database Connected Successfully</h1><p>Status Code: 200</p>);
 });
 
-app.post('/postdata',(req,res)=>{
-  moviesModel.insertMany(moviesData)
-  .then((result) => {
-    console.log('Inserted', result.length, 'documents into the collection');
-  })
-  .catch((error) => {
-    console.error('Error inserting documents:', error);
-  });
-})
+app.post("/Post",async(req,res)=>{
+  let payload=req.body;
+  const newMovie = new moviesModel(payload);
+  const error = newMovie.validateSync();
+  if (error) {
+    return res.status(400).send(error.message);
+  }
+  try {
+    await newMovie.save();
+    res.send({msg:"Posted the data successfully"})
+  } catch (error) {
+    console.log(error);
+    res.send(error);
+  }
+});
 
 app.use("/routes",CRUD_routes)
 
@@ -50,7 +56,5 @@ app.listen(port,async () => {
   }
 
   console.log(`Server is listening on port ${port}`);
-
-  
 
 });

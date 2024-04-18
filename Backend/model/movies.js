@@ -10,4 +10,4 @@ const moviesSchema=mongoose.Schema({
 })
 const moviesModel= mongoose.model("movie",moviesSchema)
 
-module.exports={moviesModel}
+module.exports={moviesModel, moviesSchema}
