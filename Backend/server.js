@@ -39,8 +39,7 @@ app.post('/postdata',(req,res)=>{
 
 app.use("/routes",CRUD_routes)
 
-
-const server=app.listen(port,async () => { 
+app.listen(port,async () => { 
   try {
     await connection;
     console.log("Connected to DB successfully")
