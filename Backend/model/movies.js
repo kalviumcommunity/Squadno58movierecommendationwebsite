@@ -1,6 +1,5 @@
 const mongoose=require('mongoose');
 const moviesSchema=mongoose.Schema({
-
     Serial_Number:Number,
     Name: String,
     Ratings: String,

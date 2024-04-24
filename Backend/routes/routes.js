@@ -3,9 +3,10 @@ const{moviesModel}=require('../model/movies')
 const CRUD_routes=express.Router()
 
 CRUD_routes.get('/',async(req,res)=>{
+    // console.log("req")
     try{
         const movies=await moviesModel.find()
-        console.log(movies)
+        // console.log(movies)
         res.json(movies)
     }catch(err){
         console.log(err)
@@ -30,11 +31,13 @@ CRUD_routes.post('/Create',async(req,res)=>{
 })
 
 CRUD_routes.put('/Update/:id',async(req,res)=>{
+    
     let id=req.params.id
     let payload=req.body
+    console.log(id,payload)
     try {
-        const movies=await moviesModel.findByIdAndUpdate(id,payload)
-        res.json({"message":"movies updated successfully"})
+        const movie=await moviesModel.findByIdAndUpdate(id,payload)
+        res.json({"message":"movies updated successfully",movie})
     } catch(error){
         res.send('Error '+error)
     }

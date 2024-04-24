@@ -7,18 +7,31 @@ import { Link } from 'react-router-dom';
 function Home(props) {
     const [data, setData] = useState(null);
     const navigate = useNavigate();
+    const handleDelete = (id) => {
+        try {
+          const response = fetch(`http://localhost:8009/routes/DELETE/${id}`, {
+            method: 'DELETE'
+          });
+
+        //   setFlag(!flag)
+        } catch (error) {
+          console.error('Error deleting entity:', error);
+        }
+      };
+    
+      const handleUpdate = (e) => {
+        let id = e._id;
+        navigate(`/update_data/${id}`);
+      };
 
     useEffect(() => {
-        fetch(`http://localhost:7007/routes`)
+        fetch(`http://localhost:8009/routes`)
             .then(res => res.json())
-            .then(res => {
+            .then((res) => {
                 setData(res);
                 console.log(res);
-            })
-            .catch(err => {
-                console.log(err);
-            })
-    }, [])
+            }).catch((err) => console.log(err))
+    }, [handleDelete,handleUpdate])
 
     return (
         <>
@@ -39,8 +52,12 @@ function Home(props) {
                             <img src={item.Poster_Link} alt="" />
                             <p>{item.Ratings}</p>
                             <p>{item.Release_Year}</p>
+                            <button className='edit' onClick={() => handleUpdate(item)}>Update</button>
+                            <button className='dlt' onClick={() => handleDelete(item._id)}>Delete</button>
                         </div>
+                        
     ))
+    
                 }
                 </div>
             </div>
