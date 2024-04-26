@@ -2,6 +2,7 @@ const express=require('express');
 const{moviesModel}=require('../model/movies')
 const CRUD_routes=express.Router()
 
+
 CRUD_routes.get('/',async(req,res)=>{
     // console.log("req")
     try{
@@ -13,8 +14,12 @@ CRUD_routes.get('/',async(req,res)=>{
         res.send({'Error':err})
     }
 })
+
+
 CRUD_routes.post('/Create',async(req,res)=>{
+    
     // console.log(req)
+    
     let payload=req.body
     console.log(payload)
     try { 

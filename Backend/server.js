@@ -8,40 +8,57 @@ const moviesData = require('./config/data');
 const { moviesModel, moviesSchema } = require('./model/movies');
 const CRUD_routes = require('./routes/routes');
 const cors=require('cors')
+const joi=require('joi');
+const { userModel } = require('./model/user.model');
 
 app.use(express.json())
 app.use(cors())
+
+const schema=joi.object({
+  email:joi.string().email().required(),
+  password:joi.string().min(3).max(10).required()
+})
+
+const validateUserInput=(Input)=>{
+
+  // console.log(email,password)
+  const {error,value}=schema.validate(Input);
+
+  if(error){
+      console.log({message:"Validation failed", error})
+      return false
+  }else{
+     console.log("Validation successfull")
+     return true
+  }
+}
 
 app.get('/ping', (req, res) => {
   res.json({ message: 'pong' });
 });
 
-app.get("/", async (req, res) => {
 
-  if(isConnected()){
-    res.status(200).send(`<h1>Database Connected Successfully</h1><p>Status Code: 200</p>`);
-  }else{
-    res.status(400).send(`<h1>Database is not Connected Successfully</h1><p>Status Code: 400</p>`);
-  }
-  
-  // res.status(200).send(<h1>Database Connected Successfully</h1><p>Status Code: 200</p>);
-});
 
-app.post("/Post",async(req,res)=>{
-  let payload=req.body;
-  const newMovie = new moviesModel(payload);
-  const error = newMovie.validateSync();
-  if (error) {
-    return res.status(400).send(error.message);
+
+
+app.post("/signup",async (req,res)=>{
+
+  let result=validateUserInput(req.body);
+
+  if(!result){
+   res.send("Invalid data in the request");
+   return;
   }
-  try {
-    await newMovie.save();
-    res.send({msg:"Posted the data successfully"})
-  } catch (error) {
-    console.log(error);
-    res.send(error);
+
+ try{
+   const user = new userModel(req.body);
+   await user.save();
+   res.status(201).json({msg:"Validation & SignUp done Successfully",data:user.toJSON()})
+ }catch(e){
+   console.log(e)
+   res.status(400).json({message:'Sign Up Failed', error: e})    
   }
-});
+  })
 
 
 
