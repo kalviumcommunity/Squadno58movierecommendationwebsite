@@ -41,6 +41,31 @@ app.get('/ping', (req, res) => {
 
 
 
+//hi
+
+app.post("/login", async (req,res)=>{
+  console.log(req.headers)
+
+// console.log(email,password)
+const {email,password}= req.body
+  let user=await userModel.findOne({email})
+
+  if(user){
+    console.log(user, "user")
+      // const payload = { userId: user.id };
+      
+
+
+    res.send({"msg":"Logged In Successfully","token":user.email})
+  }else{
+    res.send({"msg":"Please Sign-Up First"})
+    
+    }
+  
+ })
+
+
+
 app.post("/signup",async (req,res)=>{
 
   let result=validateUserInput(req.body);
