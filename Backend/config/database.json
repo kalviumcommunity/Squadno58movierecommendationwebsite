@@ -1,0 +1,83 @@
+[
+  {
+      "ID": 1,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/1/13/Baywatch_poster.jpg",        
+      "movieName": "BAYWATCH",
+      "ratings": "5.5/10",
+      "rottenTomatoes": "17%",
+      "releaseYear": 2017,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 2,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/8/8a/CentralIntelligencePoster.jpg",        
+      "movieName": "CENTRAL INTELLIGENCE",
+      "ratings": "6.3/10",
+      "rottenTomatoes": "71%",
+      "releaseYear": 2016,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 3,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/3/38/San_Andreas_poster.jpg",        
+      "movieName": "SAN ANDRES",
+      "ratings": "6.1/10",
+      "rottenTomatoes": "49%",
+      "releaseYear": 2015,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 4,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/6/6e/Skyscraper_%282018%29_film_poster.png",        
+      "movieName": "SCYSCRAPER",
+      "ratings": "5.8/10",
+      "rottenTomatoes": "48%",
+      "releaseYear": 2018,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 5,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/9/90/Bad_Boys_for_Life_poster.jpg",        
+      "movieName": "BAD BOYS FOR LIFE",
+      "ratings": "6.5/10",
+      "rottenTomatoes": "76%",
+      "releaseYear": 2020,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 6,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/6/6b/Rampage_teaser_film_poster.jpg",        
+      "movieName": "RAMPAGE",
+      "ratings": "6.1/10",
+      "rottenTomatoes": "51%",
+      "releaseYear": 2018,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 7,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/a/a9/Black_Adam_%28film%29_poster.jpg",        
+      "movieName": "BLACK ADAM",
+      "ratings": "6.2/10",
+      "rottenTomatoes": "38%",
+      "releaseYear": 2022,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 8,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/c/c6/Jungle_Cruise_-_theatrical_poster.png",        
+      "movieName": "JUNGLE CRUISE",
+      "ratings": "6.6/10",
+      "rottenTomatoes": "63%",
+      "releaseYear": 2021,
+      "created_by": "Ayush"
+  },
+  {
+      "ID": 10,
+      "poster": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c0/Lift_2024_poster.webp/259px-Lift_2024_poster.webp.png",        
+      "movieName": "LIFT",
+      "ratings": "5.5/10",
+      "rottenTomatoes": "28%",
+      "releaseYear": 2024,
+      "created_by":"Ayush"
+  }
+]
